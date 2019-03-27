@@ -12,5 +12,6 @@ public interface UsuariosDAO {
 	void borrarUsuario(int id);
 	Usuario obtenerUsuarioPorId(int id);
 	void modificarUsuario(Usuario u);
-
+	List<Usuario> obtenerUsuarios (int comienzo, int cuantos);
+	int obtenerTotalUsuarios();
 }

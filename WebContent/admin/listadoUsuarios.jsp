@@ -11,6 +11,16 @@
 
 	<jsp:include page="menu.jsp" />
 	<div>Listado de usuarios registrados de la tienda</div>
+	<div>Total: ${total}</div>
+	
+	<div>
+		<c:if test="${anterior >= 0}">
+			<a href="ServletListadoUsuarios?comienzo=${anterior}">anterior</a> &nbsp;&nbsp;&nbsp;&nbsp;
+		</c:if>
+		<c:if test="${siguiente < total}">
+			<a href="ServletListadoUsuarios?comienzo=${siguiente}">siguiente</a>
+		</c:if>
+	</div>
 
 	<table>
 		<tr style="font-weight:bold;">
