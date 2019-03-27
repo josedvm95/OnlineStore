@@ -18,7 +18,7 @@ import modelo.Usuario;
 /**
  * Servlet implementation class ServletRegistroUsuario
  */
-@WebServlet("/admin/ServletRegistroUsuario")
+@WebServlet("/admin/ServletRegistroUsuarioAdmin")
 public class ServletRegistroUsuarioAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,7 @@ public class ServletRegistroUsuarioAdmin extends HttpServlet {
 		dao.registrarUsuario(nuevo);
 		
 		// Si todo ha ido bien, continúo la petición a registroOK.jsp
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/admin/listadoUsuarios.jsp");
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/admin/ServletListadoUsuarios");
 		rd.forward(request, response);
 		
 	}
