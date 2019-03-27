@@ -13,6 +13,12 @@
 	<div>Listado de productos de la tienda</div>
 	<div>Total: ${total}</div>
 	
+	<form action="ServletListadoProductos">
+		Buscar por marca:  &nbsp;
+		<input type="text" name="campoBusqueda"/>
+		<input type="submit" value="Buscar" />
+	</form>
+	
 	<div>
 		<c:if test="${anterior >= 0}">
 			<a href="ServletListadoProductos?comienzo=${anterior}">anterior</a> &nbsp;&nbsp;&nbsp;&nbsp;

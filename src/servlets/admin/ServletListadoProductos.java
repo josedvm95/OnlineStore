@@ -29,15 +29,21 @@ public class ServletListadoProductos extends HttpServlet {
 		int comienzo = 0;
 		int cuantos = 10;
 		
+		String palabra = "%";
+		
 		if(request.getParameter("comienzo") != null) {
 			comienzo = Integer.parseInt(request.getParameter("comienzo"));
 		}
 		
+		if (request.getParameter("campoBusqueda") != null) {
+			palabra = "%" + request.getParameter("campoBusqueda") + "%";
+		}
+		
 		int siguiente = comienzo + 10;
 		int anterior = comienzo - 10;
-		int total = dao.obtenerTotalOrdenadores();
+		int total = dao.obtenerTotalBusqueda(palabra, comienzo, cuantos);
 
-		List<Ordenador> ordenadores = dao.obtenerOrdenadores(comienzo, cuantos);
+		List<Ordenador> ordenadores = dao.obtenerOrdenadores(palabra, comienzo, cuantos);
 		
 		request.setAttribute("ordenadores", ordenadores);
 		request.setAttribute("anterior", anterior);

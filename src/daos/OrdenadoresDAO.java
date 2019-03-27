@@ -11,7 +11,8 @@ public interface OrdenadoresDAO {
 	void modificarOrdenador(Ordenador o);
 	void borrarOrdenador(int id);
 	Ordenador obtenerOrdenadorPorId(int id);
-	List<Ordenador> obtenerOrdenadores(int comienzo, int cuantos);
+	List<Ordenador> obtenerOrdenadores(String palabra, int comienzo, int cuantos);
 	int obtenerTotalOrdenadores();
+	int obtenerTotalBusqueda(String palabra, int comienzo, int cuantos);
 
 }
