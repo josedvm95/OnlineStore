@@ -72,4 +72,17 @@ public class OrdenadoresDAOImpl implements OrdenadoresDAO {
 		return ordenador;
 	}
 
+	@Override
+	public List<Ordenador> obtenerOrdenadores(int comienzo, int cuantos) {
+		Integer[] valores = {comienzo, cuantos};
+		List<Ordenador> ordenadores = jdbcTemplate.query(ConstantesSQL.SQL_SELECCION_ORDENADORES_INICIO_CUANTOS, valores, new BeanPropertyRowMapper(Ordenador.class));
+		return ordenadores;
+	}
+
+	@Override
+	public int obtenerTotalOrdenadores() {
+		int total = jdbcTemplate.queryForInt(ConstantesSQL.SQL_TOTAL_ORDENADORES);
+		return total;
+	}
+
 }

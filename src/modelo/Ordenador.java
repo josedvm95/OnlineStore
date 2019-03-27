@@ -97,4 +97,10 @@ public class Ordenador {
 		this.stock = stock;
 	}
 
+	@Override
+	public String toString() {
+		return "Ordenador [marca=" + marca + ", modelo=" + modelo + ", procesador=" + procesador + ", grafica="
+				+ grafica + ", pulgadas=" + pulgadas + ", precio=" + precio + ", stock=" + stock + ", id=" + id + "]";
+	}
+
 }

@@ -11,5 +11,7 @@ public interface OrdenadoresDAO {
 	void modificarOrdenador(Ordenador o);
 	void borrarOrdenador(int id);
 	Ordenador obtenerOrdenadorPorId(int id);
+	List<Ordenador> obtenerOrdenadores(int comienzo, int cuantos);
+	int obtenerTotalOrdenadores();
 
 }
