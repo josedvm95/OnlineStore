@@ -17,7 +17,7 @@
 	<form action="ServletIdentificacionUsuario" method="post">
 		email: <input type="email" name="campoEmail"/><br/>
 		contraseña: <input type="password" name="campoPass"/><br/>
-		<input type="submit" value="Registrarme"/>
+		<input type="submit" value="Login"/>
 	</form>
 	
 

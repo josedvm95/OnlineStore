@@ -7,5 +7,6 @@
 	<a href="registrarUsuario.jsp">Registrar usuarios</a>
 	<a href="registrarServicio.jsp">Registrar servicios</a>
 	<a href="registrarCategoria.jsp">Registrar categorías</a>
+	<a href="ServletLogOutAdmin">SALIR</a>
 	
 </div>
