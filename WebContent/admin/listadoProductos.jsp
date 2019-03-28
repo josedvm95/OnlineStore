@@ -11,20 +11,26 @@
 
 	<jsp:include page="menu.jsp" />
 	<div>Listado de productos de la tienda</div>
-	<div>Total: ${total}</div>
 	
 	<form action="ServletListadoProductos">
 		Buscar por marca:  &nbsp;
-		<input type="text" name="campoBusqueda"/>
+		<input type="text" value="${campoBusqueda}" name="campoBusqueda"/>
 		<input type="submit" value="Buscar" />
 	</form>
 	
+	<div>Total de resultados: ${total}</div>
+	
 	<div>
-		<c:if test="${anterior >= 0}">
-			<a href="ServletListadoProductos?comienzo=${anterior}">anterior</a> &nbsp;&nbsp;&nbsp;&nbsp;
-		</c:if>
+		<c:choose>
+			<c:when test="${anterior >= 0}">
+				<a href="ServletListadoProductos?comienzo=${anterior}&campoBusqueda=${campoBusqueda}">anterior</a> &nbsp;&nbsp;&nbsp;&nbsp;
+			</c:when>
+			<c:otherwise>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</c:otherwise>
+		</c:choose>
 		<c:if test="${siguiente < total}">
-			<a href="ServletListadoProductos?comienzo=${siguiente}">siguiente</a>
+			<a href="ServletListadoProductos?comienzo=${siguiente}&campoBusqueda=${campoBusqueda}">siguiente</a>
 		</c:if>
 	</div>
 

@@ -26,24 +26,26 @@ public class ServletListadoProductos extends HttpServlet {
 		WebApplicationContext contenedor = ContextLoader.getCurrentWebApplicationContext();
 		OrdenadoresDAO dao = contenedor.getBean(OrdenadoresDAO.class);
 		
+		String campoBusqueda = request.getParameter("campoBusqueda");
+		if(campoBusqueda == null) {
+			campoBusqueda = "";
+		}
+		System.out.println("buscar ordenadores con la marca: " + campoBusqueda);
+		request.setAttribute("campoBusqueda", campoBusqueda);
+		
+		// Paginación
 		int comienzo = 0;
 		int cuantos = 10;
-		
-		String palabra = "%";
 		
 		if(request.getParameter("comienzo") != null) {
 			comienzo = Integer.parseInt(request.getParameter("comienzo"));
 		}
 		
-		if (request.getParameter("campoBusqueda") != null) {
-			palabra = "%" + request.getParameter("campoBusqueda") + "%";
-		}
-		
 		int siguiente = comienzo + 10;
 		int anterior = comienzo - 10;
-		int total = dao.obtenerTotalBusqueda(palabra, comienzo, cuantos);
+		int total = dao.obtenerTotalOrdenadores(campoBusqueda);
 
-		List<Ordenador> ordenadores = dao.obtenerOrdenadores(palabra, comienzo, cuantos);
+		List<Ordenador> ordenadores = dao.obtenerOrdenadores(comienzo, cuantos, campoBusqueda);
 		
 		request.setAttribute("ordenadores", ordenadores);
 		request.setAttribute("anterior", anterior);

@@ -30,6 +30,15 @@ public class ServletListadoUsuarios extends HttpServlet {
 		WebApplicationContext contenedor = ContextLoader.getCurrentWebApplicationContext();
 		UsuariosDAO dao = contenedor.getBean(UsuariosDAO.class);
 		
+		String campoBusqueda = request.getParameter("campoBusqueda");
+		if(campoBusqueda == null) {
+			campoBusqueda = "";
+		}
+		
+		System.out.println("buscar usuarios con el nombre: " + campoBusqueda);
+		request.setAttribute("campoBusqueda", campoBusqueda);
+		
+		// Parte de paginación
 		int comienzo = 0;
 		int cuantos = 10;
 		
@@ -39,9 +48,9 @@ public class ServletListadoUsuarios extends HttpServlet {
 		
 		int siguiente = comienzo + 10;
 		int anterior = comienzo - 10;
-		int total = dao.obtenerTotalUsuarios();
+		int total = dao.obtenerTotalUsuarios(campoBusqueda);
 		
-		List<Usuario> usuarios = dao.obtenerUsuarios(comienzo, cuantos);
+		List<Usuario> usuarios = dao.obtenerUsuarios(comienzo, cuantos, campoBusqueda);
 		
 		request.setAttribute("usuarios", usuarios);
 		request.setAttribute("anterior", anterior);

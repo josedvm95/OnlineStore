@@ -73,17 +73,12 @@ public class OrdenadoresDAOImpl implements OrdenadoresDAO {
 	}
 
 	@Override
-	public List<Ordenador> obtenerOrdenadores(String palabra, int comienzo, int cuantos) {
-//		Integer[] valores = {comienzo, cuantos};
-//		String[] busqueda = {campo, palabra};
-//		Object[] objeto = {campo, palabra, comienzo, cuantos};
-		Object[] objeto = {palabra, comienzo, cuantos};
-//		List<Ordenador> ordenadores = jdbcTemplate.query(ConstantesSQL.SQL_SELECCION_BUSQUEDA_ORDENADORES_INICIO_CUANTOS, objeto, new BeanPropertyRowMapper(Ordenador.class));
-		List<Ordenador> ordenadores = jdbcTemplate.query(ConstantesSQL.SQL_SELECCION_BUSQUEDA_ORDENADORES_INICIO_CUANTOS, objeto, new BeanPropertyRowMapper(Ordenador.class));
+	public List<Ordenador> obtenerOrdenadores(int comienzo, int cuantos) {
+		Integer[] valores = {comienzo, cuantos};
+		List<Ordenador> ordenadores = jdbcTemplate.query(ConstantesSQL.SQL_SELECCION_ORDENADORES_INICIO_CUANTOS, valores, new BeanPropertyRowMapper(Ordenador.class));
 		return ordenadores;
 	}
 
-	// Deprecated: obtenerTotalOrdenadores()
 	@Override
 	public int obtenerTotalOrdenadores() {
 		int total = jdbcTemplate.queryForInt(ConstantesSQL.SQL_TOTAL_ORDENADORES);
@@ -91,10 +86,16 @@ public class OrdenadoresDAOImpl implements OrdenadoresDAO {
 	}
 
 	@Override
-	public int obtenerTotalBusqueda(String palabra, int comienzo, int cuantos) {
-		Object[] valores = {palabra, comienzo, cuantos};
-		int total = jdbcTemplate.queryForInt(ConstantesSQL.SQL_TOTAL_ORDENADORES_BUSQUEDA, valores);
+	public int obtenerTotalOrdenadores(String busqueda) {
+		int total = jdbcTemplate.queryForInt(ConstantesSQL.SQL_TOTAL_ORDENADORES_BUSQUEDA, "%" + busqueda + "%");
 		return total;
+	}
+
+	@Override
+	public List<Ordenador> obtenerOrdenadores(int comienzo, int cuantos, String busqueda) {
+		Object[] valores = {"%" + busqueda + "%", comienzo, cuantos};
+		List<Ordenador> ordenadores = jdbcTemplate.query(ConstantesSQL.SQL_SELECCION_ORDENADORES_INICIO_CUANTOS_BUSQUEDA, valores, new BeanPropertyRowMapper(Ordenador.class));
+		return ordenadores;
 	}
 
 }
