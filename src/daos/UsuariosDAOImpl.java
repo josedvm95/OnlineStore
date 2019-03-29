@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import constantes.ConstantesSQL;
+import mappers.UsuariosMapper;
 import modelo.Usuario;
 
 public class UsuariosDAOImpl implements UsuariosDAO {
@@ -40,6 +41,7 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 		valores.put("nombre", u.getNombre());
 		valores.put("email", u.getEmail());
 		valores.put("pass", u.getPass());
+		valores.put("idCategoria", u.getIdCategoria());
 		
 		// Esto era para cuando no nos importaba el id generado
 		//simpleInsert.execute(valores);
@@ -107,7 +109,8 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 	@Override
 	public List<Usuario> obtenerUsuarios(int comienzo, int cuantos, String busqueda) {
 		Object[] valores = {"%" + busqueda + "%", comienzo, cuantos};
-		List<Usuario> usuarios = jdbcTemplate.query(ConstantesSQL.SQL_SELECCION_USUARIOS_INICIO_CUANTOS_BUSQUEDA, valores, new BeanPropertyRowMapper(Usuario.class));
+		// UsuariosMapper es una clase donde decimo cómo formar un usuario de cada fila resultado de la base de datos
+		List<Usuario> usuarios = jdbcTemplate.query(ConstantesSQL.SQL_SELECCION_USUARIOS_INICIO_CUANTOS_BUSQUEDA, valores, new UsuariosMapper());
 		return usuarios;
 	}
 

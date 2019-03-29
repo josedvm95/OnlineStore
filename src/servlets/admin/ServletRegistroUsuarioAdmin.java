@@ -32,7 +32,9 @@ public class ServletRegistroUsuarioAdmin extends HttpServlet {
 		String nombre = request.getParameter("campoNombre");
 		String email = request.getParameter("campoEmail");
 		String pass = request.getParameter("campoPass");
+		String idCategoria = request.getParameter("campoIdCategoria");
 		Usuario nuevo = new Usuario(nombre, email, pass);
+		nuevo.setIdCategoria(Integer.parseInt(idCategoria));
 		System.out.println("Voy a registrar: " + nuevo);
 		System.out.println("Vamos a ver si somos capaces de recuperar una bean del contenedor de Spring");
 		WebApplicationContext contenedor = ContextLoader.getCurrentWebApplicationContext();

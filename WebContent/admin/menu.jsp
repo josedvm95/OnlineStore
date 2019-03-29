@@ -4,7 +4,7 @@
 	<a href="ServletListadoServicios">Listado servicios</a>
 	<a href="ServletListadoCategorias">Listado categorías</a>
 	<a href="registrarProducto.jsp">Registrar productos</a>
-	<a href="registrarUsuario.jsp">Registrar usuarios</a>
+	<a href="ServletPrepararRegistroUsuario">Registrar usuarios</a>
 	<a href="registrarServicio.jsp">Registrar servicios</a>
 	<a href="registrarCategoria.jsp">Registrar categorías</a>
 	<a href="ServletLogOutAdmin">SALIR</a>

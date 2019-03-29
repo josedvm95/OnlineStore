@@ -6,6 +6,9 @@ public class Usuario {
 	private String email;
 	private String pass;
 	private int id;
+	private int idCategoria;
+	
+	private CategoriaUsuario categoriaUsuario;
 	
 	public Usuario() {
 		// TODO Auto-generated constructor stub
@@ -50,12 +53,26 @@ public class Usuario {
 		this.id = id;
 	}
 
+	public int getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(int idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+
+	public CategoriaUsuario getCategoriaUsuario() {
+		return categoriaUsuario;
+	}
+
+	public void setCategoriaUsuario(CategoriaUsuario categoriaUsuario) {
+		this.categoriaUsuario = categoriaUsuario;
+	}
+
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", email=" + email + ", pass=" + pass + ", id=" + id + "]";
+		return "Usuario [nombre=" + nombre + ", email=" + email + ", pass=" + pass + ", id=" + id + ", idCategoria="
+				+ idCategoria + "]";
 	}
-	
-	
-	
 	
 }

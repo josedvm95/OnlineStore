@@ -36,10 +36,11 @@
 
 	<table>
 		<tr style="font-weight:bold;">
-			<td>Id</td>
-			<td>Nombre</td>
-			<td>Email</td>
-			<td>Pass</td>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Email</th>
+			<th>Pass</th>
+			<th>Categoría</th>
 		</tr>
 		<c:forEach items="${usuarios}" var="usuario">
 			<tr>
@@ -47,6 +48,7 @@
 				<td>${usuario.nombre}</td>
 				<td>${usuario.email}</td>
 				<td>${usuario.pass}</td>
+				<td>${usuario.categoriaUsuario.nombre}</td>
 				<td><img src="../imagenesUsuarios/${usuario.id}.jpg"></td>
 				<td>
 					<form action="ServletBorradoUsuario">

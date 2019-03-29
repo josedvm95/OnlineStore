@@ -33,5 +33,9 @@
 	<bean id="categoriasDAO" class="daos.CategoriasDAOImpl">
 		<property name="elDataSource" ref="miDataSource" />
 	</bean>
+	
+	<bean id="categoriasUsuariosDAO" class="daos.CategoriasUsuariosDAOImpl">
+		<property name="elDataSource" ref="miDataSource" />
+	</bean>
 </beans>
 

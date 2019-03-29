@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,6 +15,12 @@
 		nombre:<input type="text" name="campoNombre"/><br/>
 		email:<input type="email" name="campoEmail"/><br/>
 		contraseña:<input type="password" name="campoPass"/><br/>
+		categoría:
+		<select name="campoIdCategoria">
+			<c:forEach items="${categorias}" var="c">
+					<option value="${c.id}">${c.nombre}</option>
+			</c:forEach>
+		</select>
 		<input type="submit" value="Registrar"/>
 	
 	</form>
