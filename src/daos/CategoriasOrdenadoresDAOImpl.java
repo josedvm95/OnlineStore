@@ -10,9 +10,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import constantes.ConstantesSQL;
-import modelo.Categoria;
+import modelo.CategoriaOrdenador;
 
-public class CategoriasDAOImpl implements CategoriasDAO {
+public class CategoriasOrdenadoresDAOImpl implements CategoriasOrdenadoresDAO {
 	
 	private DataSource elDataSource;
 	private SimpleJdbcInsert simpleInsert;
@@ -25,13 +25,13 @@ public class CategoriasDAOImpl implements CategoriasDAO {
 	public void setElDataSource(DataSource elDataSource) {
 		this.elDataSource = elDataSource;
 		simpleInsert = new SimpleJdbcInsert(elDataSource);
-		simpleInsert.setTableName("tabla_categorias");
+		simpleInsert.setTableName("tabla_categorias_ordenador");
 		jdbcTemplate = new JdbcTemplate(elDataSource);
 		
 	}
 	
 	@Override
-	public void registrarCategoria(Categoria c) {
+	public void registrarCategoria(CategoriaOrdenador c) {
 		HashMap<String, Object> valores = new HashMap<String, Object>();
 		valores.put("nombre", c.getNombre());
 		valores.put("descripcion", c.getDescripcion());
@@ -39,9 +39,9 @@ public class CategoriasDAOImpl implements CategoriasDAO {
 	}
 
 	@Override
-	public List<Categoria> obtenerCategorias() {
-		String sql = ConstantesSQL.SQL_SELECCION_CATEGORIAS;
-		List<Categoria> categorias = (List<Categoria>) jdbcTemplate.query(sql, new BeanPropertyRowMapper(Categoria.class));
+	public List<CategoriaOrdenador> obtenerCategorias() {
+		String sql = ConstantesSQL.SQL_SELECCION_CATEGORIAS_ORDENADOR;
+		List<CategoriaOrdenador> categorias = (List<CategoriaOrdenador>) jdbcTemplate.query(sql, new BeanPropertyRowMapper(CategoriaOrdenador.class));
 		return categorias;
 	}
 

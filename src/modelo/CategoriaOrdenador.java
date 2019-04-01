@@ -1,16 +1,16 @@
 package modelo;
 
-public class Categoria {
+public class CategoriaOrdenador {
 
 	private String nombre;
 	private String descripcion;
 	private int id;
 
-	public Categoria() {
+	public CategoriaOrdenador() {
 
 	}
 
-	public Categoria(String nombre, String descripcion) {
+	public CategoriaOrdenador(String nombre, String descripcion) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;

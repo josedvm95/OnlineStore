@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
 
-import daos.CategoriasDAO;
-import modelo.Categoria;
+import daos.CategoriasOrdenadoresDAO;
+import modelo.CategoriaOrdenador;
 
 @WebServlet("/admin/ServletRegistroCategoriaAdmin")
 public class ServletRegistroCategoriaAdmin extends HttpServlet {
@@ -24,10 +24,10 @@ public class ServletRegistroCategoriaAdmin extends HttpServlet {
 		
 		String descripcion = request.getParameter("campoDescripcion");
 		
-		Categoria nueva = new Categoria(nombre, descripcion);
+		CategoriaOrdenador nueva = new CategoriaOrdenador(nombre, descripcion);
 		
 		WebApplicationContext contenedor = ContextLoader.getCurrentWebApplicationContext();
-		CategoriasDAO dao = contenedor.getBean(CategoriasDAO.class);
+		CategoriasOrdenadoresDAO dao = contenedor.getBean(CategoriasOrdenadoresDAO.class);
 		dao.registrarCategoria(nueva);
 		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/admin/ServletListadoCategorias");

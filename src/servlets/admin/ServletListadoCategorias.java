@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
 
-import daos.CategoriasDAO;
-import modelo.Categoria;
+import daos.CategoriasOrdenadoresDAO;
+import modelo.CategoriaOrdenador;
 
 @WebServlet("/admin/ServletListadoCategorias")
 public class ServletListadoCategorias extends HttpServlet {
@@ -24,9 +24,9 @@ public class ServletListadoCategorias extends HttpServlet {
 			throws ServletException, IOException {
 		
 		WebApplicationContext contenedor = ContextLoader.getCurrentWebApplicationContext();
-		CategoriasDAO dao = contenedor.getBean(CategoriasDAO.class);
+		CategoriasOrdenadoresDAO dao = contenedor.getBean(CategoriasOrdenadoresDAO.class);
 
-		List<Categoria> categorias = dao.obtenerCategorias();
+		List<CategoriaOrdenador> categorias = dao.obtenerCategorias();
 		request.setAttribute("categorias", categorias);
 
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/admin/listadoCategorias.jsp");

@@ -30,7 +30,7 @@
 		<property name="elDataSource" ref="miDataSource" />
 	</bean>
 
-	<bean id="categoriasDAO" class="daos.CategoriasDAOImpl">
+	<bean id="categoriasOrdenadoresDAO" class="daos.CategoriasOrdenadoresDAOImpl">
 		<property name="elDataSource" ref="miDataSource" />
 	</bean>
 	

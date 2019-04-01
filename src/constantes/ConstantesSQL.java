@@ -22,7 +22,7 @@ public class ConstantesSQL {
 	public final static String SQL_TOTAL_ORDENADORES_BUSQUEDA = "SELECT COUNT(*) FROM tabla_ordenadores WHERE marca LIKE ?;";
 	
 	public final static String SQL_SELECCION_SERVICIOS = "SELECT * FROM tabla_servicios ORDER BY id DESC;";
-	public final static String SQL_SELECCION_CATEGORIAS = "SELECT * FROM tabla_categorias ORDER BY id DESC;";
+	public final static String SQL_SELECCION_CATEGORIAS_ORDENADOR = "SELECT * FROM tabla_categorias_ordenador ORDER BY id DESC;";
 	public final static String SQL_SELECCION_CATEGORIAS_USUARIO = "SELECT * FROM tabla_categorias_usuario ORDER BY id DESC;";
 	
 }
