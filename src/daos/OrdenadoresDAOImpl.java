@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import constantes.ConstantesSQL;
+import mappers.OrdenadoresMapper;
 import modelo.Ordenador;
 
 public class OrdenadoresDAOImpl implements OrdenadoresDAO {
@@ -94,7 +95,7 @@ public class OrdenadoresDAOImpl implements OrdenadoresDAO {
 	@Override
 	public List<Ordenador> obtenerOrdenadores(int comienzo, int cuantos, String busqueda) {
 		Object[] valores = {"%" + busqueda + "%", comienzo, cuantos};
-		List<Ordenador> ordenadores = jdbcTemplate.query(ConstantesSQL.SQL_SELECCION_ORDENADORES_INICIO_CUANTOS_BUSQUEDA, valores, new BeanPropertyRowMapper(Ordenador.class));
+		List<Ordenador> ordenadores = jdbcTemplate.query(ConstantesSQL.SQL_SELECCION_ORDENADORES_INICIO_CUANTOS_BUSQUEDA, valores, new OrdenadoresMapper());
 		return ordenadores;
 	}
 

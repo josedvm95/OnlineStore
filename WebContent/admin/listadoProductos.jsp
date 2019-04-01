@@ -36,14 +36,15 @@
 
 	<table>
 		<tr style="font-weight:bold;">
-			<td>Id</td>
-			<td>Marca</td>
-			<td>Modelo</td>
-			<td>Procesador</td>
-			<td>Gráfica</td>
-			<td>Pulgadas</td>
-			<td>Precio</td>
-			<td>Stock</td>
+			<th>Id</th>
+			<th>Marca</th>
+			<th>Modelo</th>
+			<th>Procesador</th>
+			<th>Gráfica</th>
+			<th>Pulgadas</th>
+			<th>Precio</th>
+			<th>Stock</th>
+			<th>Categoría</th>
 		</tr>
 		<c:forEach items="${ordenadores}" var="ordenador">
 			<tr>
@@ -55,6 +56,7 @@
 				<td>${ordenador.pulgadas}</td>
 				<td>${ordenador.precio}</td>
 				<td>${ordenador.stock}</td>
+				<td>${ordenador.categoriaOrdenador.nombre}</td>
 				<td><img src="../imagenesOrdenadores/${ordenador.id}.jpg" height="32"></td>
 				<td>
 					<form action="ServletBorradoProducto">

@@ -30,6 +30,7 @@ public class ServletListadoProductos extends HttpServlet {
 		if(campoBusqueda == null) {
 			campoBusqueda = "";
 		}
+		
 		System.out.println("buscar ordenadores con la marca: " + campoBusqueda);
 		request.setAttribute("campoBusqueda", campoBusqueda);
 		

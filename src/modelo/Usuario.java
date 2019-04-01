@@ -11,7 +11,7 @@ public class Usuario {
 	private CategoriaUsuario categoriaUsuario;
 	
 	public Usuario() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Usuario(String nombre, String email, String pass) {

@@ -10,6 +10,9 @@ public class Ordenador {
 	private double precio;
 	private int stock;
 	private int id;
+	private int idCategoria;
+	
+	private CategoriaOrdenador categoriaOrdenador;
 
 	public Ordenador() {
 
@@ -97,10 +100,27 @@ public class Ordenador {
 		this.stock = stock;
 	}
 
+	public int getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(int idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+
+	public CategoriaOrdenador getCategoriaOrdenador() {
+		return categoriaOrdenador;
+	}
+
+	public void setCategoriaOrdenador(CategoriaOrdenador categoriaOrdenador) {
+		this.categoriaOrdenador = categoriaOrdenador;
+	}
+
 	@Override
 	public String toString() {
 		return "Ordenador [marca=" + marca + ", modelo=" + modelo + ", procesador=" + procesador + ", grafica="
-				+ grafica + ", pulgadas=" + pulgadas + ", precio=" + precio + ", stock=" + stock + ", id=" + id + "]";
+				+ grafica + ", pulgadas=" + pulgadas + ", precio=" + precio + ", stock=" + stock + ", id=" + id
+				+ ", idCategoria=" + idCategoria + "]";
 	}
 
 }

@@ -36,6 +36,14 @@ public class CategoriaOrdenador {
 		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "CategoriaOrdenador [nombre=" + nombre + ", descripcion=" + descripcion + ", id=" + id + "]";
+	}
 	
 
 }

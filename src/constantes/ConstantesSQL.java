@@ -17,7 +17,7 @@ public class ConstantesSQL {
 	public final static String SQL_EDICION_ORDENADORES = "UPDATE tabla_ordenadores SET marca=?, modelo=?, procesador=?, grafica=?, pulgadas=?, precio=?, stock=? WHERE id=?;";
 	public final static String SQL_OBTENER_ORDENADOR_POR_ID = "SELECT * FROM tabla_ordenadores WHERE id=?;";
 	public final static String SQL_SELECCION_ORDENADORES_INICIO_CUANTOS = "SELECT * FROM tabla_ordenadores order by id desc limit ?,?;";
-	public final static String SQL_SELECCION_ORDENADORES_INICIO_CUANTOS_BUSQUEDA = "SELECT * FROM tabla_ordenadores WHERE marca LIKE ? ORDER BY id desc limit ?,?;";
+	public final static String SQL_SELECCION_ORDENADORES_INICIO_CUANTOS_BUSQUEDA = "SELECT tor.*, tco.nombre AS nombreCategoria FROM tabla_ordenadores AS tor, tabla_categorias_ordenador AS tco WHERE tor.idCategoria = tco.id AND tor.marca LIKE ? ORDER BY id desc limit ?,?;";
 	public final static String SQL_TOTAL_ORDENADORES = "SELECT COUNT(*) FROM tabla_ordenadores;";
 	public final static String SQL_TOTAL_ORDENADORES_BUSQUEDA = "SELECT COUNT(*) FROM tabla_ordenadores WHERE marca LIKE ?;";
 	
